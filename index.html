@@ -1,0 +1,65 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>Para você ❤️</title>
+<style>
+body{
+    margin:0;
+    overflow:hidden;
+    background:#111;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    height:100vh;
+    color:white;
+    font-family:Arial;
+    text-align:center;
+}
+img{
+    width:260px;
+    border-radius:20px;
+    margin-bottom:15px;
+}
+h1{
+    font-size:28px;
+}
+.heart{
+    position:absolute;
+    color:red;
+    font-size:24px;
+    animation: subir 4s linear infinite;
+}
+@keyframes subir{
+    from{transform:translateY(0);opacity:1}
+    to{transform:translateY(-800px);opacity:0}
+}
+</style>
+</head>
+
+<body onclick="tocarMusica()">
+
+<img src="foto.jpg">
+<h1>eu te amo mais do que vc imagina ❤️</h1>
+
+<audio id="musica" src="musica.mp3"></audio>
+
+<script>
+function tocarMusica(){
+    document.getElementById("musica").play();
+}
+
+setInterval(()=>{
+    const heart=document.createElement("div");
+    heart.className="heart";
+    heart.style.left=Math.random()*100+"vw";
+    heart.innerHTML="❤️";
+    document.body.appendChild(heart);
+    setTimeout(()=>heart.remove(),4000);
+},300);
+</script>
+
+</body>
+</html>
